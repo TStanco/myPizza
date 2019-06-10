@@ -3,12 +3,17 @@ package implementation;
 import api.IPizza;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 
 @Component
-@Primary
+@Primary@PropertySource(("classpath:ceny.properties"))
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+//@api.GoodPizza
 //@Qualifier("dobra")
 public class GoodPizza implements IPizza {
   private int price;
@@ -16,13 +21,18 @@ public class GoodPizza implements IPizza {
 
 //  public GoodPizza(int price, String name) {
   public GoodPizza(
-          @Value("14") int price, @Value("dobra") String name) {
+          @Value("${cena_dobrej}") int price, @Value("${nazwa}") String name) {
     this.price = price;
     this.name = name;
   }
 
   public int getPrice() {
     return price;
+  }
+
+
+  public void setPrice(int price) {
+    this.price = price;
   }
 
   public String getName() {

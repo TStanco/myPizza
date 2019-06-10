@@ -10,15 +10,19 @@ import org.springframework.stereotype.Component;
 //@Primary
 @Component
 //@Qualifier("egzotyczna")
-@GoodPizza
+//@GoodPizza
 public class ExoticPizza implements IPizza {
   private int price;
   private String name;
+  @Value("#{goodPizza.price matches'[1-555][1-555]'}")
+  boolean bool;
 
 
     public ExoticPizza(
-          @Value("1") int price,
-          @Value("Egzotyczna ") String name) {
+//          @Value("#{goodPizza.getPrice()}") int price,
+//          @Value("#{T(java.lang.Math).random()*10}") int price,
+          @Value("#{goodPizza.price>13? 13:20}") int price,
+          @Value("#{goodPizza.getName()?.toUpperCase()}") String name) {
 //  public ExoticPizza(int price, String name) {
 
     super();
@@ -27,7 +31,13 @@ public class ExoticPizza implements IPizza {
   }
 
   public int getPrice() {
+    System.out.println(bool);
     return price;
+  }
+
+
+  public void setPrice(int price) {
+    this.price=price;
   }
 
   public String getName() {
