@@ -15,12 +15,12 @@ import java.util.List;
 @ComponentScan("implementation")
 //@Import(Config.class)
 public class AutoConfig {
-@Bean
-  public List<IPizza>listOfPizza (){
-  List<IPizza>listOfPizza = new ArrayList<IPizza>();
-  listOfPizza.add(new ExoticPizza(15, "exotic"));
-  listOfPizza.add(new GoodPizza(10, "good"));
-  return listOfPizza;
-}
+//@Bean
+//  public List<IPizza>listOfPizza (){
+//  List<IPizza>listOfPizza = new ArrayList<IPizza>();
+//  listOfPizza.add(new ExoticPizza(15, "exotic"));
+//  listOfPizza.add(new GoodPizza(10, "good"));
+//  return listOfPizza;
+//}
 
 }

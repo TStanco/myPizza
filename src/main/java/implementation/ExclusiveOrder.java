@@ -26,7 +26,7 @@ public class ExclusiveOrder implements IOrder {
     super();
   }
 
-  @Override
+
   public void printOrder() {
     System.out.println("Zamówienie exclusive: "+ pizza.getName()+ ", cena: "+pizza.getPrice());
   }
