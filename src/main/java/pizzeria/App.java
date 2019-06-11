@@ -17,5 +17,7 @@ public class App {
 
     IKucharz kucharz = context.getBean(IKucharz.class);
     kucharz.pobierzSkladnikiZMagazynu();
+    kucharz.przygotujPizze();
+    kucharz.wydajPizze();
   }
 }

@@ -5,6 +5,9 @@ import api.IKucharz;
 public class Kucharz implements IKucharz {
   public void pobierzSkladnikiZMagazynu() {
     System.out.println("Kucharz pobiera składniki");
+
+//    throw new IllegalAccessError();
+
   }
 
   public void przygotujPizze() {
