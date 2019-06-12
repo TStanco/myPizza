@@ -2,6 +2,7 @@ package pizzeria;
 
 import api.IKucharz;
 import api.IOrder;
+import api.IZapiekanka;
 import config.AppConfig;
 import config.AutoConfig;
 import implementation.Order;
@@ -15,9 +16,15 @@ public class App {
 //    IOrder order2 = context.getBean(Order.class);
 //    order2.printOrder();
 
-    IKucharz kucharz = context.getBean(IKucharz.class);
-    kucharz.pobierzSkladnikiZMagazynu();
-    kucharz.przygotujPizze();
-    kucharz.wydajPizze();
+    IKucharz k = (IKucharz) context.getBean("kucharz");
+    ((IZapiekanka)k).przygotujZapiekanke();
+
+
+//    k.pobierzSkladnikiZMagazynu(1);
+//    k.przygotujPizze(2);
+//    k.wydajPizze();
+//    IKucharz pomocnik = (IKucharz) context.getBean("pomocnikKucharza");
+//    pomocnik.pobierzSkladnikiZMagazynu();
+
   }
 }
